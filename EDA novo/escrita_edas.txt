@@ -1,0 +1,31 @@
+To provide a more accurate understanding of the relation between dependent and independent variables, we build upon the preliminary testing carried out in the last subsection.
+Namely, we increase the granularity of our problem by employing the second experimental setup defined in section \ref{subsec:experimental_setup}.
+With this setup we were able to double the resolution of the exam probability (using a factor of $\sqrt{2}$ instead of 2 for the geometric prograssion) while also testing the number of exams up to 100 with a step of 4.
+Nevertheless, to counterbalance the higher computational budget we decided to relax the need for conventional statistical significance and perform 5 seeds per run instead of 30.
+
+
+We start by analysing the resulting distribution of times and output values $N$ shown by the histrograms in Figure \ref{fig:hists}.
+On the one hand, we verify that the computational times are mostly either close to 0 or reaching the stipulated cut-off threashold (100 seconds), with a few runs displaying times between 10 and 40 seconds.
+However, this trend fades out and times seem to increase exponentially, leadind to the high frequency of cut-offs that we verified. Generally speaking, the hypothesis that times increase exponentially with the increase of both exam probability assignment and number of exams is consistent with the time complexity of the
+backtracking algorithms used in both code 1 and 2.
+On the other hand, the frequency for the least number of slots found (\textit{i.e.} $N$) seems to resemble a skewed normal distribution. Again, we verify a high frequency of cut-offs that is evidenced by the values $N = -1$.
+
+
+With the high pervasiveness of cut-offs in mind, we follow this last analysis with the corresponding boxplots representations (shown in Figure \ref{fig:hists}), but this time with the samples that reached the cutoff removed from the dataset.
+The boxplot for the $N$ values displays a median of $N = 3$, with an interquartile range of $[2, 4]$. We also coroborate the aforementioned skew towards smaller values of $N$, with a minimun and maximun score of 1 and 7, respectively. Overall, the boxplot for the computational time proves rather uninsightful as a consequence of the exponential distribution (all quartile values are close to 0).
+
+
+To complement our analysis, we show the 3D surface plot corresponding to the time taken for each run as a function of both the output value $N$ and the assignment probability (Figure \ref{fig:suf_plot}). Similar to the graphs displayed for the preliminary experiment of the last section, these surface plots encompass all samples, including cut-off times and display the logarithm of exam probability to ease vizualization. The higher granularity in the problem domains seem to further make the case for the steep increase in computational time. As shown, for the relatively small probability of 0.02 we need a problem of almost 100 exams to reach the cut-off time. On the contrary, by raising the probability to 0.64 we verify that even problems with as low as 20 exams seem to struggle to stay below the time threashold. One glaring difference illustrated by this plot is that its surface is much more irregular leading to higher standard deviations amongst seeds (Figure\ref{fig:suf_plot_dev}) when compared to the shown in the preliminary experiment.
+This can be partially explained by the lower number of seeds run for each problem configuration.
+Nonetheless, in order to determine if higher devations and solely a product of lower statistical significance or a symptom of the problem's nature, we would need to consider more seeds, which surpasses our allocated time in machine of the departement for the time being.
+
+
+Finally, to complete our analysis, we show the pairplot pertaining to the relations between each considered variable along with the corresponding frequency histograms for each of these variables. This plot 
+ 
+
+
+% show pairplot
+
+% talk about box plot
+
+
